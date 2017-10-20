@@ -1,35 +1,53 @@
 flags: {}
-packages:
-    - .
-    - ./ipython-kernel
-    - ./ghc-parser
-    - ./ihaskell-display/ihaskell-aeson
-    - ./ihaskell-display/ihaskell-blaze
-    - ./ihaskell-display/ihaskell-charts
-    - ./ihaskell-display/ihaskell-diagrams
-    - ./ihaskell-display/ihaskell-gnuplot
-    - ./ihaskell-display/ihaskell-hatex
-    - ./ihaskell-display/ihaskell-juicypixels
-    - ./ihaskell-display/ihaskell-magic
-    - ./ihaskell-display/ihaskell-plot
-    - ./ihaskell-display/ihaskell-static-canvas
-    - ./ihaskell-display/ihaskell-widgets
-resolver: lts-9.9
-extra-deps: []
-flags:
-  ihaskell:
-    binpkgdb: false
-
 nix:
-  enable: false
   packages:
-    - blas
-    - cairo
-    - file
-    - gcc
-    - liblapack
-    - ncurses
-    - pango
-    - pkgconfig
-    - zeromq
-    - zlib
+  - blas
+  - cairo
+  - file
+  - gcc
+  - liblapack
+  - ncurses
+  - pango
+  - pkgconfig
+  - zeromq
+  - zlib
+  enable: false
+packages:
+- .
+- ./ipython-kernel
+- ./ghc-parser
+- ./ihaskell-display/ihaskell-aeson
+- ./ihaskell-display/ihaskell-blaze
+- ./ihaskell-display/ihaskell-charts
+- ./ihaskell-display/ihaskell-diagrams
+- ./ihaskell-display/ihaskell-gnuplot
+- ./ihaskell-display/ihaskell-hatex
+- ./ihaskell-display/ihaskell-juicypixels
+- ./ihaskell-display/ihaskell-magic
+- ./ihaskell-display/ihaskell-plot
+- ./ihaskell-display/ihaskell-static-canvas
+- ./ihaskell-display/ihaskell-widgets
+- location:
+    git: https://github.com/jcberentsen/haskell.git
+    commit: a9dfaaa9a746d0f63452993e56342fadfb1891c2
+  subdirs:
+  - tensorflow
+  - tensorflow-core-ops
+  - tensorflow-logging
+  - tensorflow-opgen
+  - tensorflow-ops
+  - tensorflow-records-conduit
+  - tensorflow-records
+  - tensorflow-proto
+  - tensorflow-test
+  - tensorflow-mnist
+  - tensorflow-mnist-input-data
+  extra-dep: true
+
+extra-deps:
+- proto-lens-0.2.2.0
+- proto-lens-descriptors-0.2.2.0
+- proto-lens-protoc-0.2.2.3
+- snappy-0.2.0.2
+- snappy-framing-0.1.1
+resolver: lts-9.9

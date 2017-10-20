@@ -31,6 +31,18 @@ Some prerequisites; adapt to your distribution.
 sudo apt-get install -y python3-pip git libtinfo-dev libzmq3-dev libcairo2-dev libpango1.0-dev libmagic-dev libblas-dev liblapack-dev
 ```
 
+### For TensorFlow (GPU version, remove '-gpu-' below for CPU)
+
+```bash
+curl -O -L https://github.com/google/protobuf/releases/download/v3.2.0/protoc-3.2.0-linux-x86_64.zip
+unzip -d /usr/local protoc-3.2.0-linux-x86_64.zip bin/protoc
+chmod 755 /usr/local/bin/protoc
+curl -O https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-gpu-linux-x86_64-1.3.0.tar.gz
+tar zxf libtensorflow-gpu-linux-x86_64-1.3.0.tar.gz -C /usr/local
+ldconfig
+```
+
+
 ```bash
 pip3 install -r requirements.txt
 curl -sSL https://get.haskellstack.org/ | sh
@@ -43,7 +55,7 @@ ihaskell install --stack
 
 ## Mac
 
-You need to have [Homebrew](https://brew.sh) installed. 
+You need to have [Homebrew](https://brew.sh) installed.
 If you do not have it yet run `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` in your terminal.
 
 You also need the Xcode command line tools.
